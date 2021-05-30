@@ -1,4 +1,4 @@
-Feature: Home page
+Feature: Miniature Market UI test
 
   Scenario: Home page elements test
     Given Home page check logo
@@ -35,7 +35,7 @@ Feature: Home page
     Then Click on cart
     Then validate the product
 
-  @Test
+
   Scenario: Test delete button in cart page.
     Given Home page url "https://www.miniaturemarket.com/"
     When Enter query in search box and press enter key
@@ -47,11 +47,23 @@ Feature: Home page
     Then click on delete icon form cart list
     Then validate product is deleted or not
 
-#    @Test
-#    Scenario: Test delete all button in cart page
-#      Given Home page url "https://www.miniaturemarket.com/"
-#      When Search query and go to the SRP
-#      Then Click add to cart button from SRP for more that one product
-#      Then Click on cart icon and go to the cart page
-#      Then delete all product one by one form cart list
-#      Then validate all products are deleted or not
+
+    Scenario: Test delete more than one product in cart page
+      Given Home page url "https://www.miniaturemarket.com/"
+      When Enter query in search box and press enter key
+      Then Click add to cart button from SRP for more that one product
+      Then Click on cart icon
+      Then Click on view shipping cart button
+      Then Validate the cart page products
+      Then delete all product one by one form cart list
+      Then validate all products are deleted or not
+
+
+  Scenario: Test delete all button in cart page
+    Given Home page url "https://www.miniaturemarket.com/"
+    When Enter query in search box and press enter key
+    Then Click add to cart button from SRP for more that one product
+    Then Click on cart icon
+    Then Click on view shipping cart button
+    Then Click on delete All button
+    Then validate all products are deleted or not

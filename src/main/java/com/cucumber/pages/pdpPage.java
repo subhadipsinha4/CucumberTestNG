@@ -31,40 +31,40 @@ public class pdpPage extends baseTest {
     @FindBy(xpath = "//div[@class='actions']//a[text()='View Shopping Cart']")
     public static WebElement clickCartPageButton;
 
-    @FindBy(xpath = "//a[text()='Cart']")
-    public WebElement pdpPageCart;
+//    @FindBy(xpath = "//a[text()='Cart']")
+//    public WebElement pdpPageCart;
 
 
-    public void checkProductDescription()
-    {
-        Assert.assertTrue(productDescriptions.isDisplayed());
-    }
-
-    public void increaseProductQty()
-    {
-            producttitlePDP=productTitlePDP.getText();
-         Select allQty= new Select( driver.findElement( By.xpath("//select[@name='qty']") ) );
-         allQty.selectByValue( "4" );
-         productQty=4;
-    }
-
-    public void clickADDtoCartPDP() {
-        addToCartPDP.click();
-    }
-
-    public void pdpCartProductCheck()
-    {
-        String addproductOnCart=productTitleCart.getText();
-        try{
-        Assert.assertEquals( addproductOnCart,producttitlePDP ); }
-        finally {
-            Assert.assertEquals(productQty,Integer.parseInt(productQtyCart.getAttribute( "value" )) ); }
-
-    }
-
-    public cartPage clickCartPageButton() throws IOException {
-        clickCartPageButton.click();
-        return new cartPage();
-    }
+//    public void checkProductDescription()
+//    {
+//        Assert.assertTrue(productDescriptions.isDisplayed());
+//    }
+//
+//    public void increaseProductQty()
+//    {
+//            producttitlePDP=productTitlePDP.getText();
+//         Select allQty= new Select( driver.findElement( By.xpath("//select[@name='qty']") ) );
+//         allQty.selectByValue( "4" );
+//         productQty=4;
+//    }
+//
+//    public void clickADDtoCartPDP() {
+//        addToCartPDP.click();
+//    }
+//
+//    public void pdpCartProductCheck()
+//    {
+//        String addproductOnCart=productTitleCart.getText();
+//        try{
+//        Assert.assertEquals( addproductOnCart,producttitlePDP ); }
+//        finally {
+//            Assert.assertEquals(productQty,Integer.parseInt(productQtyCart.getAttribute( "value" )) ); }
+//
+//    }
+//
+//    public static cartPage clickCartPageButton() throws IOException {
+//        clickCartPageButton.click();
+//        return new cartPage();
+//    }
 
 }

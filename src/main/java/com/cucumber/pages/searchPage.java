@@ -18,7 +18,7 @@ public class searchPage extends baseTest {
     public searchPage() throws IOException {
         PageFactory.initElements( driver,this );
     }
-    HashMap<String,String> productDetails=new HashMap<String, String>();
+    //public static HashMap<String,String> productDetails=new HashMap<String, String>();
 
     @FindBy(xpath = "//a[@id='unbxd-results-top']")
     public WebElement searchResultMessage;
@@ -26,37 +26,38 @@ public class searchPage extends baseTest {
     public WebElement productClickOnSRP;
     public String addToCartList="//div[@unbxdattr]//a[@title='Add to Cart']";
     public String products="//div[@unbxdattr]";
-    public String productPriceSRP="//div[@unbxdattr]//span[@class='price']";
-
-    public String checkSearchMessage()
-    {
-        return searchResultMessage.getText();
-    }
-
-    public pdpPage clickProductOnSRP() throws IOException {
-        productClickOnSRP.click();
-        return new pdpPage();
-    }
-
-    public void addedMoreThanOneProduct() throws InterruptedException {
-            List<WebElement> addToCartButtons=driver.findElements( By.xpath(addToCartList) );
-            List<WebElement> productSKU=driver.findElements( By.xpath( products ) );
-            List<WebElement> productPrice=driver.findElements( By.xpath( productPriceSRP ) );
-            for(int i=0;i<3;i++)
-            {
-                addToCartButtons.get( i ).click();
-                Thread.sleep( 3000 );
-                productDetails.put( productSKU.get( i ).getAttribute( "unbxdparam_sku" ),productPrice.get( i ).getText() );
-            }
-
-    }
-
-    public cartPage clickAndGoToCart() throws IOException, InterruptedException {
-        homePage.homePageCart.click();
-        Thread.sleep( 2000 );
-        pdpPage.clickCartPageButton.click();
-        return new cartPage();
-    }
+    public String productSalePriceSRP="//p[@class='special-price']//span[@class='price']";
+    @FindBy(xpath = "//div[@class='actions']//a[text()='View Shopping Cart']")
+    public static WebElement clickCartPageButton;
+//
+//    public String checkSearchMessage()
+//    {
+//        return searchResultMessage.getText();
+//    }
+//
+//    public pdpPage clickProductOnSRP() throws IOException {
+//        productClickOnSRP.click();
+//        return new pdpPage();
+//    }
+//
+//    public void addedMoreThanOneProduct() throws InterruptedException {
+//            List<WebElement> addToCartButtons=driver.findElements( By.xpath(addToCartList) );
+//            List<WebElement> productSKU=driver.findElements( By.xpath( products ) );
+//            List<WebElement> productPrice=driver.findElements( By.xpath( productPriceSRP ) );
+//            for(int i=0;i<3;i++)
+//            {
+//                addToCartButtons.get( i ).click();
+//                Thread.sleep( 3000 );
+//                productDetails.put( productSKU.get( i ).getAttribute( "unbxdparam_sku" ),productPrice.get( i ).getText() );
+//            }
+//
+//    }
+//
+//
+//    public static cartPage clickCartPageButton() throws IOException {
+//        clickCartPageButton.click();
+//        return new cartPage();
+//    }
 
 
 

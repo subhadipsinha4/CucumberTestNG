@@ -26,12 +26,10 @@ public class TestRunner{
     @Test(description = "Runs Cucumber Feature", dataProvider = "features")
     public void feature(CucumberFeatureWrapper cucumberFeature) {
         testNGCucumberRunner.runCucumber(cucumberFeature.getCucumberFeature());
-
     }
 
     @DataProvider
     public Object[][] features() {
-
         return testNGCucumberRunner.provideFeatures();
     }
 
